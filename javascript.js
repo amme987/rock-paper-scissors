@@ -1,12 +1,3 @@
-/* getComputerChoice() will randomly return rock, paper, scissors
-    playRound() plays single round of rock paper scissors
-        2 parameters(playerSelection, computerSelection)
-        return string that declares winner
-        case sensitive
-    game() calls playRound inside to play a 5 round game to keep score
-    Use prompt() to get input from user
- */
-
 function getComputerChoice() {
   let choice = Math.floor(Math.random() * 3 + 1);
   let computerSelection;
@@ -24,24 +15,38 @@ function getComputerChoice() {
   return computerSelection;
 }
 
+let tie = 0,
+  win = 0,
+  lose = 0;
+
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === computerSelection) {
-    return "It's a tie!";
+    return tie++;
   } else if (
     (playerSelection === "paper" && computerSelection === "rock") ||
-    (playerSelection === "rock" && computer === "scissors") ||
+    (playerSelection === "rock" && computerSelection === "scissors") ||
     (playerSelection === "scissors" && computerSelection === "paper")
   ) {
-    return "You win!";
+    return win++;
   } else {
-    return "You lose!";
+    return lose++;
   }
 }
 
-// function game() {
-//   for (let i = 0; i < 5; i++) {
-//     playRound("paper", getComputerChoice());
-//   }
-// }
+function game() {
+  let playerSelection;
+  for (let i = 0; i < 5; i++) {
+    playerSelection = prompt("Input rock, paper, or scissors");
+    playerSelection = playerSelection.toLowerCase();
+    playRound(playerSelection, getComputerChoice());
+  }
+  if ((tie > win && tie > lose) || (win == 2 && lose == 2)) {
+    console.log("It's a tie!");
+  } else if ((win > tie && win > lose) || win == 2 & tie == 2) {
+    console.log("Congratulations! You won!");
+  } else {
+    console.log("Sorry, you lost");
+  }
+}
 
-console.log(playRound("paper", getComputerChoice()));
+game();
