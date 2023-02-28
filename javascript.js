@@ -35,18 +35,21 @@ function playRound(playerSelection, computerSelection) {
 
 function game() {
   let playerSelection;
-  for (let i = 0; i < 5; i++) {
-    playerSelection = prompt("Input rock, paper, or scissors");
-    playerSelection = playerSelection.toLowerCase();
-    playRound(playerSelection, getComputerChoice());
-  }
+  // for (let i = 0; i < 5; i++) {
+  //   playerSelection = prompt("Input rock, paper, or scissors");
+  //   playerSelection = playerSelection.toLowerCase();
+  //   playRound(playerSelection, getComputerChoice());
+  // }
+  playerSelection = prompt("Input rock, paper, or scissors");
+  playerSelection = playerSelection.toLowerCase();
+  playRound(playerSelection, getComputerChoice());
   if ((tie > win && tie > lose) || (win == 2 && lose == 2)) {
     console.log("It's a tie!");
-  } else if ((win > tie && win > lose) || win == 2 & tie == 2) {
+  } else if ((win > tie && win > lose) || (win == 2) & (tie == 2)) {
     console.log("Congratulations! You won!");
   } else {
     console.log("Sorry, you lost");
   }
 }
 
-game();
+playRound("paper", getComputerChoice);
