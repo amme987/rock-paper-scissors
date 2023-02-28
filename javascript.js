@@ -20,36 +20,47 @@ let tie = 0,
   lose = 0;
 
 function playRound(playerSelection, computerSelection) {
+  console.log("computer " + computerSelection);
+  console.log("player " + playerSelection);
+
   if (playerSelection === computerSelection) {
-    return tie++;
+    tie++;
   } else if (
     (playerSelection === "paper" && computerSelection === "rock") ||
     (playerSelection === "rock" && computerSelection === "scissors") ||
     (playerSelection === "scissors" && computerSelection === "paper")
   ) {
-    return win++;
+    win++;
   } else {
-    return lose++;
+    lose++;
   }
-}
 
-function game() {
-  let playerSelection;
-  // for (let i = 0; i < 5; i++) {
-  //   playerSelection = prompt("Input rock, paper, or scissors");
-  //   playerSelection = playerSelection.toLowerCase();
-  //   playRound(playerSelection, getComputerChoice());
-  // }
-  playerSelection = prompt("Input rock, paper, or scissors");
-  playerSelection = playerSelection.toLowerCase();
-  playRound(playerSelection, getComputerChoice());
-  if ((tie > win && tie > lose) || (win == 2 && lose == 2)) {
-    console.log("It's a tie!");
-  } else if ((win > tie && win > lose) || (win == 2) & (tie == 2)) {
+  // Announce winner of the game once one player reaches 5 points
+  if (win === 5) {
     console.log("Congratulations! You won!");
-  } else {
+  } else if (lose === 5) {
     console.log("Sorry, you lost");
   }
 }
 
-playRound("paper", getComputerChoice);
+// function game() {
+//   let playerSelection;
+//   for (let i = 0; i < 5; i++) {
+//     playerSelection = prompt("Input rock, paper, or scissors");
+//     playerSelection = playerSelection.toLowerCase();
+//     playRound(playerSelection, getComputerChoice());
+//   }
+//   playerSelection = prompt("Input rock, paper, or scissors");
+//   playerSelection = playerSelection.toLowerCase();
+//   playRound(playerSelection, getComputerChoice());
+//   if ((tie > win && tie > lose) || (win == 2 && lose == 2)) {
+//     console.log("It's a tie!");
+//   } else if ((win > tie && win > lose) || (win == 2) & (tie == 2)) {
+//     console.log("Congratulations! You won!");
+//   } else {
+//     console.log("Sorry, you lost");
+//   }
+// }
+
+const rock = document.querySelector("#rock");
+rock.addEventListener("click", () => playRound("rock", getComputerChoice()));
