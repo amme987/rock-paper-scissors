@@ -20,8 +20,8 @@ let tie = 0,
   lose = 0;
 
 function playRound(playerSelection, computerSelection) {
-  console.log("computer " + computerSelection);
   console.log("player " + playerSelection);
+  console.log("computer " + computerSelection);
 
   if (playerSelection === computerSelection) {
     tie++;
@@ -35,7 +35,7 @@ function playRound(playerSelection, computerSelection) {
     lose++;
   }
 
-  // Announce winner of the game once one player reaches 5 points
+  // Announce winner of the game once one player reaches 5 points"
   if (win === 5) {
     console.log("Congratulations! You won!");
   } else if (lose === 5) {
@@ -62,5 +62,15 @@ function playRound(playerSelection, computerSelection) {
 //   }
 // }
 
-const rock = document.querySelector("#rock");
-rock.addEventListener("click", () => playRound("rock", getComputerChoice()));
+const buttons = Array.from(document.querySelectorAll("button"));
+buttons.forEach((button) =>
+  button.addEventListener("click", (e) => {
+    if (e.target.id === "rock") {
+      playRound("rock", getComputerChoice());
+    } else if (e.target.id === "paper") {
+      playRound("paper", getComputerChoice());
+    } else {
+      playRound("scissors", getComputerChoice());
+    }
+  })
+);
