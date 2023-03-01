@@ -3,6 +3,14 @@ html {
   color: white;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100vh;
+  margin: 0;
+}
+
 h1,
 .results,
 .player,
@@ -12,15 +20,14 @@ h1,
 
 .buttons,
 .score,
-.choose, .end-game {
+.choose,
+.end-game {
   display: flex;
   justify-content: space-evenly;
 }
 
 .buttons button,
 .computerChoice {
-  min-width: 100px;
-  min-height: 100px;
   font-size: 100px;
   background-color: transparent;
 }
@@ -41,6 +48,16 @@ h1,
 }
 
 .results {
-    font-size: 1.5em;
-    font-weight: bold;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.buttons button {
+  height: 150px;
+  transition-property: font-size;
+  transition-duration: 0.5s;
+}
+
+.buttons button:hover {
+  font-size: 150px;
 }

@@ -78,6 +78,7 @@ buttons.forEach((button) =>
   )
 );
 
+// Reset game
 replay.addEventListener("click", () => location.reload());
 
 // function clickFunction(e) {
