@@ -24,8 +24,9 @@ function playRound(playerSelection, computerSelection) {
   console.log("computer " + computerSelection);
 
   if (playerSelection === computerSelection) {
-    tie++;
-    tieScore.textContent = "Tie: " + tie;
+    return;
+    // tie++;
+    // tieScore.textContent = "Tie: " + tie;
   } else if (
     (playerSelection === "paper" && computerSelection === "rock") ||
     (playerSelection === "rock" && computerSelection === "scissors") ||
@@ -41,25 +42,50 @@ function playRound(playerSelection, computerSelection) {
   // Announce winner of the game once one player reaches 5 points"
   if (win === 5) {
     results.textContent = "Congratulations! You won!";
+    controller.abort();
+    replay.style.cssText = "display: inline-block";
+    // alert("You won");
   } else if (lose === 5) {
     results.textContent = "Sorry, you lost";
+    controller.abort();
+    replay.style.cssText = "display: inline-block";
+    // alert("You lost");
   }
 }
 
 const buttons = Array.from(document.querySelectorAll("button"));
+const controller = new AbortController();
+const results = document.querySelector(".results");
+const playerScore = document.querySelector("#player");
+const computerScore = document.querySelector("#computer");
+const body = document.querySelector("body");
+const replay = document.querySelector(".replay");
+
+// Put correct player choice in playRound
 buttons.forEach((button) =>
-  button.addEventListener("click", (e) => {
-    if (e.target.id === "rock") {
-      playRound("rock", getComputerChoice());
-    } else if (e.target.id === "paper") {
-      playRound("paper", getComputerChoice());
-    } else {
-      playRound("scissors", getComputerChoice());
-    }
-  })
+  button.addEventListener(
+    "click",
+    (e) => {
+      if (e.target.id === "rock") {
+        playRound("rock", getComputerChoice());
+      } else if (e.target.id === "paper") {
+        playRound("paper", getComputerChoice());
+      } else {
+        playRound("scissors", getComputerChoice());
+      }
+    },
+    { signal: controller.signal }
+  )
 );
 
-const results = document.querySelector(".results");
-const playerScore = document.querySelector(".player");
-const computerScore = document.querySelector(".computer");
-const tieScore = document.querySelector(".tie");
+replay.addEventListener("click", () => location.reload());
+
+// function clickFunction(e) {
+//   if (e.target.id === "rock") {
+//     playRound("rock", getComputerChoice());
+//   } else if (e.target.id === "paper") {
+//     playRound("paper", getComputerChoice());
+//   } else {
+//     playRound("scissors", getComputerChoice());
+//   }
+// }

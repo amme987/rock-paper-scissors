@@ -1,0 +1,46 @@
+html {
+  background-color: black;
+  color: white;
+}
+
+h1,
+.results,
+.player,
+.computer {
+  text-align: center;
+}
+
+.buttons,
+.score,
+.choose, .end-game {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.buttons button,
+.computerChoice {
+  min-width: 100px;
+  min-height: 100px;
+  font-size: 100px;
+  background-color: transparent;
+}
+
+.playerChoice {
+  border: solid;
+  min-width: 100px;
+  min-height: 100px;
+}
+
+.computerChoice {
+  color: transparent;
+  text-shadow: 0 0 white;
+}
+
+.replay {
+  display: none;
+}
+
+.results {
+    font-size: 1.5em;
+    font-weight: bold;
+}

@@ -9,14 +9,33 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="score">
-      <div class="player">Player: 0</div>
-      <div class="computer">Computer: 0</div>
-      <div class="tie">Tie: 0</div>
+    <h1>Rock Paper Scissors</h1>
+
+    <div class="buttons">
+      <button id="rock">🪨</button>
+      <button id="paper">📄</button>
+      <button id="scissors">✂️</button>
     </div>
-    <button id="rock">Rock</button>
-    <button id="paper">Paper</button>
-    <button id="scissors">Scissors</button>
-    <div class="results"></div>
+
+    <div class="score">
+      <div class="player">
+        <h2 id="player">Player: 0</h2>
+        <div class="playerChoice"></div>
+      </div>
+      <div class="computer">
+        <h2 id="computer">Computer: 0</h2>
+        <div class="computerChoice">❔</div>
+      </div>
+    </div>
+
+    <!-- <div class="choose">
+      <div class="playerChoice"></div>
+      <div class="computerChoice"></div>
+    </div> -->
+
+    <div class="end-game">
+      <div class="results"></div>
+      <button class="replay">Replay</button>
+    </div>
   </body>
 </html>
