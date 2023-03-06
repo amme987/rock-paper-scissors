@@ -22,11 +22,9 @@ let tie = 0,
 function playRound(playerSelection, computerSelection) {
   console.log("player " + playerSelection);
   console.log("computer " + computerSelection);
-
+  showPlayerSelection(playerSelection);
   if (playerSelection === computerSelection) {
     return;
-    // tie++;
-    // tieScore.textContent = "Tie: " + tie;
   } else if (
     (playerSelection === "paper" && computerSelection === "rock") ||
     (playerSelection === "rock" && computerSelection === "scissors") ||
@@ -50,6 +48,20 @@ function playRound(playerSelection, computerSelection) {
     controller.abort();
     replay.style.cssText = "display: inline-block";
     // alert("You lost");
+  }
+}
+
+// Show icon that player selects under score 
+function showPlayerSelection(playerSelection) {
+  if (playerSelection === "rock") {
+    const playerChoice = document.querySelector(".playerChoice");
+    playerChoice.textContent = "🪨";
+  } else if (playerSelection === "paper") {
+    const playerChoice = document.querySelector(".playerChoice");
+    playerChoice.textContent = "📄";
+  } else {
+    const playerChoice = document.querySelector(".playerChoice");
+    playerChoice.textContent = "✂️";
   }
 }
 

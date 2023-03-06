@@ -27,16 +27,17 @@ h1,
 }
 
 .buttons button,
+.playerChoice,
 .computerChoice {
   font-size: 100px;
   background-color: transparent;
 }
 
-.playerChoice {
+/* .playerChoice {
   border: solid;
   min-width: 100px;
   min-height: 100px;
-}
+} */
 
 .computerChoice {
   color: transparent;
@@ -54,8 +55,7 @@ h1,
 
 .buttons button {
   height: 150px;
-  transition-property: font-size;
-  transition-duration: 0.5s;
+  transition: font-size 0.5s;
 }
 
 .buttons button:hover {
