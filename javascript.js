@@ -15,6 +15,20 @@ function getComputerChoice() {
   return computerSelection;
 }
 
+// Show icon that computer selects under score
+function showComputerSelection(computerSelection) {
+  if (computerSelection === "rock") {
+    const computerChoice = document.querySelector(".computerChoice");
+    computerChoice.textContent = "🪨";
+  } else if (computerSelection === "paper") {
+    const computerChoice = document.querySelector(".computerChoice");
+    computerChoice.textContent = "📄";
+  } else {
+    const computerChoice = document.querySelector(".computerChoice");
+    computerChoice.textContent = "✂️";
+  }
+}
+
 let tie = 0,
   win = 0,
   lose = 0;
@@ -23,6 +37,7 @@ function playRound(playerSelection, computerSelection) {
   console.log("player " + playerSelection);
   console.log("computer " + computerSelection);
   showPlayerSelection(playerSelection);
+  showComputerSelection(computerSelection);
   if (playerSelection === computerSelection) {
     return;
   } else if (
@@ -51,7 +66,7 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-// Show icon that player selects under score 
+// Show icon that player selects under score
 function showPlayerSelection(playerSelection) {
   if (playerSelection === "rock") {
     const playerChoice = document.querySelector(".playerChoice");
