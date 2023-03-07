@@ -32,8 +32,6 @@ let tie = 0,
   lose = 0;
 
 function playRound(playerSelection, computerSelection) {
-  console.log("player " + playerSelection);
-  console.log("computer " + computerSelection);
   showPlayerSelection(playerSelection);
   showComputerSelection(computerSelection);
   if (playerSelection === computerSelection) {
