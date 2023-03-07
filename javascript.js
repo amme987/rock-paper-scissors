@@ -17,14 +17,12 @@ function getComputerChoice() {
 
 // Show icon that computer selects under score
 function showComputerSelection(computerSelection) {
+  computerChoice.style.cssText = "color: canvasText; text-shadow: none;"; // Fix styling issue from CSS that made the icons for computerChoice white
   if (computerSelection === "rock") {
-    const computerChoice = document.querySelector(".computerChoice");
     computerChoice.textContent = "🪨";
   } else if (computerSelection === "paper") {
-    const computerChoice = document.querySelector(".computerChoice");
     computerChoice.textContent = "📄";
   } else {
-    const computerChoice = document.querySelector(".computerChoice");
     computerChoice.textContent = "✂️";
   }
 }
@@ -68,14 +66,12 @@ function playRound(playerSelection, computerSelection) {
 
 // Show icon that player selects under score
 function showPlayerSelection(playerSelection) {
+  playerChoice.style.cssText = "color: canvasText; text-shadow: none;"; // Fix styling issue from CSS that made the icons for playerChoice white
   if (playerSelection === "rock") {
-    const playerChoice = document.querySelector(".playerChoice");
     playerChoice.textContent = "🪨";
   } else if (playerSelection === "paper") {
-    const playerChoice = document.querySelector(".playerChoice");
     playerChoice.textContent = "📄";
   } else {
-    const playerChoice = document.querySelector(".playerChoice");
     playerChoice.textContent = "✂️";
   }
 }
@@ -87,6 +83,8 @@ const playerScore = document.querySelector("#player");
 const computerScore = document.querySelector("#computer");
 const body = document.querySelector("body");
 const replay = document.querySelector(".replay");
+const computerChoice = document.querySelector(".computerChoice");
+const playerChoice = document.querySelector(".playerChoice");
 
 // Put correct player choice in playRound
 buttons.forEach((button) =>
@@ -107,13 +105,3 @@ buttons.forEach((button) =>
 
 // Reset game
 replay.addEventListener("click", () => location.reload());
-
-// function clickFunction(e) {
-//   if (e.target.id === "rock") {
-//     playRound("rock", getComputerChoice());
-//   } else if (e.target.id === "paper") {
-//     playRound("paper", getComputerChoice());
-//   } else {
-//     playRound("scissors", getComputerChoice());
-//   }
-// }

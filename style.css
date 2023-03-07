@@ -6,9 +6,16 @@ html {
 body {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
   height: 100vh;
   margin: 0;
+  font-family: monospace;
+}
+
+h1 {
+  font-family: "Leckerli One", cursive;
+  font-size: 4em;
+  font-weight: normal;
+  margin-bottom: 0;
 }
 
 h1,
@@ -18,6 +25,10 @@ h1,
   text-align: center;
 }
 
+h2,
+.end-game {
+  font-size: xx-large;
+}
 .buttons,
 .score,
 .choose,
@@ -33,16 +44,11 @@ h1,
   background-color: transparent;
 }
 
-/* .playerChoice {
-  border: solid;
-  min-width: 100px;
-  min-height: 100px;
-} */
-
-/* .computerChoice {
+.playerChoice,
+.computerChoice {
   color: transparent;
   text-shadow: 0 0 white;
-} */
+}
 
 .replay {
   display: none;
@@ -54,10 +60,27 @@ h1,
 }
 
 .buttons button {
-  height: 150px;
+  height: 200px;
   transition: font-size 0.5s;
 }
 
 .buttons button:hover {
   font-size: 150px;
+}
+
+.end-game {
+  margin: auto;
+  gap: 80px;
+}
+
+.replay {
+  border-radius: 5px;
+  width: 100px;
+  font-family: monospace;
+  font-size: 20px;
+  background-color: white;
+}
+
+.replay:hover {
+  background-color: #e0e0e0;
 }
